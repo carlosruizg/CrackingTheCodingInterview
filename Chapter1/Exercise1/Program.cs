@@ -36,11 +36,11 @@ namespace Exercise1
         	int exist = 0;
         	foreach( var c in s.ToCharArray())
         	{
-        		if((exist & (1 << (int)c)) > 0)
+        		if((exist & (1 << c)) > 0)
         		{
         			return false;
         		}
-        		exist |= 1 << (int)c;
+        		exist |= 1 << c;
         	}
         	return true;
         }
