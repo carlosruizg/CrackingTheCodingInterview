@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Permutation
 {
@@ -13,7 +14,7 @@ namespace Permutation
             var input2 = Console.ReadLine();
             while(input1 != "quit")
             {
-            	Console.WriteLine($"Are {input1} and {input2} permutations? {IsPermutation(input1, input2)}");
+            	Console.WriteLine($"Are {input1} and {input2} permutations? {IsPermutationWithSorts(input1, input2)}");
 	            Console.WriteLine("First Word");
 	            input1 = Console.ReadLine();
 	            Console.WriteLine("Second Word");
@@ -40,6 +41,17 @@ namespace Permutation
         	}
 
         	return true;
+        }
+
+        static bool IsPermutationWithSorts(string s1, string s2)
+        {
+        	if(s1.Length != s2.Length)
+        		return false;
+
+        	var sortedS1 = new string(s1.OrderBy(c => c).ToArray());
+        	var sortedS2 = new string(s2.OrderBy(c => c).ToArray());
+
+        	return sortedS1 == sortedS2;
         }
     }
 }
