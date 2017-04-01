@@ -34,5 +34,25 @@ namespace ReplaceWhitespace
         {
         	return string.Join("%20", s.Trim().Split()).ToString();
         }
+
+        static string ReplaceWhitespaceWithOneLoop(string s)
+        {
+        	var arrayC = s.Trim().ToCharArray();
+        	var newSpaces = arrayC.Count(c => c == ' ');
+        	var newArray = new char[arrayC.Length() + newSpaces];
+        	for(var i = 0; i < arrayC.Length(); i++)
+        	{
+        		if(arrayC[i] == ' ')
+        		{
+
+        		}
+        		else
+        		{
+
+        		}
+
+        	}
+        		
+        }
     }
 }
