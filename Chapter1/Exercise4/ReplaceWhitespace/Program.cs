@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace ReplaceWhitespace
 {
@@ -18,6 +19,18 @@ namespace ReplaceWhitespace
         }
 
         static string ReplaceWhitespace(string s)
+        {
+        	var builder = new StringBuilder();
+        	foreach(var c in s.Trim().ToCharArray()){
+        		if(c == ' ')
+        			builder.Append("%20");
+        		else
+        			builder.Append(c);
+        	}
+        	return builder.ToString();
+        }
+
+        static string ReplaceWhitespaceWithLinq(string s)
         {
         	return string.Join("%20", s.Trim().Split()).ToString();
         }
