@@ -1,0 +1,64 @@
+Explain how you would design a Chat server. Provide details about backend components classes and methods. What's the hardest problem to solve?
+
+Questions
+	Group chats?
+	What type of messages can be sent? Test, media?
+	Do we need Read/Delivered features?
+	No calls - vodeo
+
+Components
+	Session
+		Sing up, Sign in, Sign Out
+	Update User Data
+		picture, status
+	User
+		Add contact
+	creating conversations
+	Dispatcher
+		Receives Message, Sender and Receiver
+			If receiver is not online, store message to send it later in Missed Messages
+			Persist in Database messages
+		Notifies of Delivered/Read to Sender
+			Update status in Db
+
+	Feeds from Message Bus. I'll attach an error Queue for messages that fail.
+
+	Stores Message History and Missed Messages
+			What type of DB???
+
+	Worker Role that scans Missed messages and re put them in Dispatcher Queue
+
+	Message Repository
+		Add Messages to History
+		Update status (delivered, read)
+
+	Security???
+
+
+Objects
+	User
+		Phone Number
+		User Id
+		Profile Picture
+	Message
+		Sender Id
+		Receiver Id
+		Sent/Read flag???
+		Sent date
+
+		emoji
+		text
+		image
+		gif
+		video
+		voice
+		localisation
+		contact
+	Conversation
+		Name
+		2 or more Users
+		Media
+		Picture
+		List of Messages
+
+
